@@ -268,10 +268,10 @@ export function PipelineTab() {
                   <option value="stop">{t('stopOnFail')}</option>
                   <option value="continue">{t('continueOnFail')}</option>
                 </select>
-                <Button onClick={() => moveStep(i, -1)} variant="ghost" size="icon-xs" className="w-5 h-5" title="Move up">
+                <Button onClick={() => moveStep(i, -1)} variant="ghost" size="icon-xs" className="w-5 h-5" title="Monter">
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3"><path d="M8 3v10M4 7l4-4 4 4" /></svg>
                 </Button>
-                <Button onClick={() => moveStep(i, 1)} variant="ghost" size="icon-xs" className="w-5 h-5" title="Move down">
+                <Button onClick={() => moveStep(i, 1)} variant="ghost" size="icon-xs" className="w-5 h-5" title="Descendre">
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3"><path d="M8 13V3M4 9l4 4 4-4" /></svg>
                 </Button>
                 <Button onClick={() => removeStep(i)} variant="ghost" size="icon-xs" className="w-5 h-5 text-red-400 hover:text-red-300">
@@ -353,12 +353,12 @@ export function PipelineTab() {
                   >
                     {spawning === p.id ? '...' : 'Run'}
                   </Button>
-                  <Button onClick={() => startEdit(p)} variant="secondary" size="icon-xs" title="Edit">
+                  <Button onClick={() => startEdit(p)} variant="secondary" size="icon-xs" title="Modifier">
                     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3.5 h-3.5">
                       <path d="M11.5 1.5l3 3-9 9H2.5v-3z" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </Button>
-                  <Button onClick={() => deletePipeline(p.id)} variant="destructive" size="icon-xs" title="Delete">
+                  <Button onClick={() => deletePipeline(p.id)} variant="destructive" size="icon-xs" title="Supprimer">
                     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3.5 h-3.5">
                       <path d="M4 4l8 8M12 4l-8 8" strokeLinecap="round" />
                     </svg>

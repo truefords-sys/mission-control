@@ -268,7 +268,7 @@ export function IntegrationsPanel() {
                 variant="outline"
                 size="sm"
                 className="flex items-center gap-1.5"
-                title="Pull all vault-backed integrations in this category from 1Password"
+                title="Récupérer toutes les intégrations de ce coffre dans cette catégorie depuis 1Password"
               >
                 {pullingAll ? (
                   <div className="w-3 h-3 border-2 border-current border-t-transparent rounded-full animate-spin" />
@@ -498,7 +498,7 @@ function IntegrationCard({
             <Button
               onClick={onPull}
               disabled={pulling}
-              title="Pull from 1Password"
+              title="Récupérer depuis 1Password"
               variant="outline"
               size="xs"
               className="text-2xs flex items-center gap-1"
@@ -520,7 +520,7 @@ function IntegrationCard({
             <Button
               onClick={onTest}
               disabled={testing}
-              title="Test connection"
+              title="Tester la connexion"
               variant="outline"
               size="xs"
               className="text-2xs flex items-center gap-1"
@@ -542,7 +542,7 @@ function IntegrationCard({
           {hasSetVars && (
             <Button
               onClick={onRemove}
-              title="Remove from .env"
+              title="Supprimer du .env"
               variant="outline"
               size="xs"
               className="text-2xs hover:text-destructive hover:border-destructive/50"
@@ -571,7 +571,7 @@ function IntegrationCard({
                     type={isRevealed ? 'text' : 'password'}
                     value={edits[envKey]}
                     onChange={e => onEdit(envKey, e.target.value)}
-                    placeholder="Enter value..."
+                    placeholder="Saisir une valeur..."
                     className="flex-1 px-2 py-1 text-xs bg-background border border-primary/50 rounded focus:border-primary focus:outline-none font-mono"
                     autoComplete="off"
                     data-1p-ignore
@@ -601,7 +601,7 @@ function IntegrationCard({
                 {!isEditing && (
                   <Button
                     onClick={() => onEdit(envKey, '')}
-                    title="Edit value"
+                    title="Modifier la valeur"
                     variant="ghost"
                     size="icon-xs"
                     className="w-6 h-6"
@@ -614,7 +614,7 @@ function IntegrationCard({
                 {isEditing && (
                   <Button
                     onClick={() => onCancelEdit(envKey)}
-                    title="Cancel edit"
+                    title="Annuler la modification"
                     variant="ghost"
                     size="icon-xs"
                     className="w-6 h-6 hover:text-destructive"

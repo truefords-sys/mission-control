@@ -935,11 +935,11 @@ function ArrayField({ label, help, items, itemSchema, path, onPatch }: {
             onPatch(path, [...items, newItem])
           }}
           className="ml-auto text-2xs"
-        >+ Add</Button>
+        >+ Ajouter</Button>
       </div>
       {help && <div className="text-2xs text-muted-foreground mb-1">{help}</div>}
       {items.length === 0 ? (
-        <div className="text-2xs text-muted-foreground py-2">No items.</div>
+        <div className="text-2xs text-muted-foreground py-2">Aucun élément.</div>
       ) : (
         <div className="space-y-2">
           {items.map((item, idx) => (

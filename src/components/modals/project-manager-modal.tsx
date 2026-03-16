@@ -230,7 +230,7 @@ export function ProjectManagerModal({
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-                placeholder="Project name"
+                placeholder="Nom du projet"
                 className="bg-surface-1 text-foreground border border-border rounded-md px-3 py-2"
                 required
               />
@@ -238,7 +238,7 @@ export function ProjectManagerModal({
                 type="text"
                 value={form.ticket_prefix}
                 onChange={(e) => setForm((prev) => ({ ...prev, ticket_prefix: e.target.value }))}
-                placeholder="Ticket prefix (e.g. PA)"
+                placeholder="Préfixe du ticket (ex. PA)"
                 className="bg-surface-1 text-foreground border border-border rounded-md px-3 py-2"
               />
               <Button type="submit">
@@ -248,14 +248,14 @@ export function ProjectManagerModal({
             <textarea
               value={form.description}
               onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
-              placeholder="Description (optional)"
+              placeholder="Description (facultatif)"
               rows={2}
               className="w-full bg-surface-1 text-foreground border border-border rounded-md px-3 py-2 text-sm resize-none"
             />
           </form>
 
           {loading ? (
-            <div className="text-sm text-muted-foreground">Loading projects...</div>
+            <div className="text-sm text-muted-foreground">Chargement des projets...</div>
           ) : (
             <div className="space-y-2">
               {projects.map((project) => (
@@ -278,7 +278,7 @@ export function ProjectManagerModal({
                             </span>
                           )}
                           {project.deadline && project.deadline < Math.floor(Date.now() / 1000) && (
-                            <span className="w-2 h-2 rounded-full bg-red-500 shrink-0" title="Overdue" />
+                            <span className="w-2 h-2 rounded-full bg-red-500 shrink-0" title="En retard" />
                           )}
                         </div>
                         <div className="text-xs text-muted-foreground">
@@ -326,7 +326,7 @@ export function ProjectManagerModal({
                             onChange={(e) => setEditForm(prev => ({ ...prev, description: e.target.value }))}
                             rows={2}
                             className="w-full bg-surface-1 text-foreground border border-border rounded-md px-3 py-2 text-sm resize-none"
-                            placeholder="Project description"
+                            placeholder="Description du projet"
                           />
                         </div>
                         <div>
@@ -419,8 +419,8 @@ export function ProjectManagerModal({
                       )}
 
                       <div className="flex gap-2 pt-1">
-                        <Button size="sm" onClick={() => saveEdit(project)}>Save</Button>
-                        <Button size="sm" variant="secondary" onClick={() => setEditingId(null)}>Cancel</Button>
+                        <Button size="sm" onClick={() => saveEdit(project)}>Enregistrer</Button>
+                        <Button size="sm" variant="secondary" onClick={() => setEditingId(null)}>Annuler</Button>
                       </div>
                     </div>
                   )}

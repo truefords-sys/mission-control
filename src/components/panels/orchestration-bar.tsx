@@ -465,7 +465,7 @@ export function OrchestrationBar() {
                           onClick={() => executeTemplate(tmpl)}
                           disabled={spawning === tmpl.id}
                           size="xs"
-                          title="Run"
+                          title="Exécuter"
                         >
                           {spawning === tmpl.id ? '...' : 'Run'}
                         </Button>
@@ -473,7 +473,7 @@ export function OrchestrationBar() {
                           onClick={() => startEdit(tmpl)}
                           variant="secondary"
                           size="icon-xs"
-                          title="Edit"
+                          title="Modifier"
                         >
                           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3.5 h-3.5">
                             <path d="M11.5 1.5l3 3-9 9H2.5v-3z" strokeLinecap="round" strokeLinejoin="round" />
@@ -483,7 +483,7 @@ export function OrchestrationBar() {
                           onClick={() => duplicateTemplate(tmpl)}
                           variant="secondary"
                           size="icon-xs"
-                          title="Duplicate"
+                          title="Dupliquer"
                         >
                           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3.5 h-3.5">
                             <rect x="5" y="5" width="9" height="9" rx="1" strokeLinecap="round" strokeLinejoin="round" />
@@ -494,7 +494,7 @@ export function OrchestrationBar() {
                           onClick={() => deleteTemplate(tmpl.id)}
                           variant="destructive"
                           size="icon-xs"
-                          title="Delete"
+                          title="Supprimer"
                         >
                           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-3.5 h-3.5">
                             <path d="M4 4l8 8M12 4l-8 8" strokeLinecap="round" />

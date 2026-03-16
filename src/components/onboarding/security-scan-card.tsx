@@ -179,8 +179,8 @@ export function SecurityScanCard({ compact = false, autoScan = false }: { compac
     return (
       <div className="flex flex-col items-center gap-4 py-6">
         <div className="text-center">
-          <p className="text-sm text-muted-foreground mb-1">Run a comprehensive security scan of your installation</p>
-          <p className="text-xs text-muted-foreground/60">Checks credentials, network config, OpenClaw hardening, and runtime security</p>
+          <p className="text-sm text-muted-foreground mb-1">Lancez une analyse de sécurité complète de votre installation</p>
+          <p className="text-xs text-muted-foreground/60">Vérifie les identifiants, la configuration réseau, le renforcement OpenClaw et la sécurité d'exécution</p>
         </div>
         <Button onClick={runScan} variant="outline" size="sm" className="border-void-cyan/30 text-void-cyan hover:bg-void-cyan/10">
           Run Security Scan
@@ -201,7 +201,7 @@ export function SecurityScanCard({ compact = false, autoScan = false }: { compac
     return (
       <div className="flex flex-col items-center gap-3 py-6">
         <p className="text-sm text-red-400">{error}</p>
-        <Button onClick={runScan} variant="outline" size="sm">Retry</Button>
+        <Button onClick={runScan} variant="outline" size="sm">Réessayer</Button>
       </div>
     )
   }
@@ -339,7 +339,7 @@ export function SecurityScanCard({ compact = false, autoScan = false }: { compac
                             <button
                               onClick={(e) => { e.stopPropagation(); copyFix(check.fix, check.id) }}
                               className="shrink-0 px-1.5 py-0.5 text-2xs rounded border border-border/50 text-muted-foreground hover:text-foreground hover:border-border transition-colors"
-                              title="Copy fix command"
+                              title="Copier la commande de correction"
                             >
                               {copiedFix === check.id ? 'Copied' : 'Copy'}
                             </button>

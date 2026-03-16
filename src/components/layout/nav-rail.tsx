@@ -761,7 +761,7 @@ function OrgRow({ label, initial, active, colorClass, onClick, isActiveOrg, proj
                   <span className="text-[9px] bg-white/10 px-1 rounded text-muted-foreground/50">{project.task_count}</span>
                 )}
                 {project.deadline && project.deadline < Math.floor(Date.now() / 1000) && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-500" title="Overdue" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500" title="En retard" />
                 )}
                 <span className="text-muted-foreground/30 text-[10px]">{project.ticket_prefix}</span>
               </div>
@@ -1068,7 +1068,7 @@ function ContextSwitcher({ currentUser, isAdmin, isLocal, isConnected, tenants, 
                     <Button
                       variant="ghost"
                       disabled
-                      title="Temporarily disabled — not functional yet"
+                      title="Temporairement désactivé — pas encore fonctionnel"
                       className="w-full flex items-center gap-2 px-2 py-1.5 h-auto rounded-md text-xs justify-start text-muted-foreground/40 cursor-not-allowed"
                     >
                       <div className="w-5 h-5 flex items-center justify-center text-muted-foreground/40">

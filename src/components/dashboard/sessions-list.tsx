@@ -53,7 +53,7 @@ function SessionCard({ session }: SessionCardProps) {
     if (parts.length > 3 && parts[2] === 'subagent') {
       return parts[3] || 'Unknown task'
     }
-    return session.active ? 'Active' : 'Idle'
+    return session.active ? 'Actif' : 'Inactif'
   }
 
   const roleBadge = getRoleBadge(session.key)
@@ -104,7 +104,7 @@ function SessionCard({ session }: SessionCardProps) {
               ? 'bg-green-500/20 text-green-400 border-green-500/30 animate-pulse'
               : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
           }`}>
-            {session.active ? 'WORKING' : 'IDLE'}
+            {session.active ? 'EN COURS' : 'INACTIF'}
           </div>
 
           {/* Token Usage */}
@@ -154,9 +154,9 @@ export function SessionsList({ sessions }: SessionsListProps) {
   return (
     <div className="bg-card rounded-lg border border-border">
       <div className="p-4 border-b border-border">
-        <h3 className="font-semibold text-foreground">Active Sessions</h3>
+        <h3 className="font-semibold text-foreground">Sessions actives</h3>
         <p className="text-sm text-muted-foreground">
-          {sessions.length} total • {activeSessions.length} active
+          {sessions.length} au total • {activeSessions.length} actives
         </p>
       </div>
 
@@ -164,8 +164,8 @@ export function SessionsList({ sessions }: SessionsListProps) {
         {sessions.length === 0 ? (
           <div className="text-center py-8 text-muted-foreground">
             <div className="text-4xl mb-2">🤖</div>
-            <p>No sessions active</p>
-            <p className="text-xs">Sessions will appear here when agents start</p>
+            <p>Aucune session active</p>
+            <p className="text-xs">Les sessions apparaîtront ici au démarrage des agents</p>
           </div>
         ) : (
           <div className="space-y-3">

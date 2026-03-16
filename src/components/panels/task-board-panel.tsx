@@ -1488,7 +1488,7 @@ function TaskDetailModal({
               {task.metadata?.dispatch_session_id && (
                 <>
                   <div className="col-span-2 mt-2 pt-2 border-t border-border/50">
-                    <span className="text-muted-foreground text-xs font-medium uppercase tracking-wider">Agent Session</span>
+                    <span className="text-muted-foreground text-xs font-medium uppercase tracking-wider">Session de l'agent</span>
                   </div>
                   <div className="col-span-2">
                     <Button
@@ -1558,7 +1558,7 @@ function TaskDetailModal({
 
             <div className="mt-5 bg-blue-500/5 border border-blue-500/15 rounded-lg p-3 text-xs text-muted-foreground space-y-1">
               <div className="font-medium text-blue-300">How notifications work</div>
-              <div><strong className="text-foreground">Comments</strong> are persisted on the task and notify all subscribers. Subscribers are auto-added when they: create the task, are assigned to it, comment on it, or are @mentioned.</div>
+              <div><strong className="text-foreground">Comments</strong> sont enregistrés sur la tâche et notifient tous les abonnés. Les abonnés sont ajoutés automatiquement lorsqu'ils : créent la tâche, y sont assignés, la commentent ou sont @mentionnés.</div>
               <div><strong className="text-foreground">Broadcasts</strong> send a one-time notification to all current subscribers without creating a comment record.</div>
             </div>
 
@@ -2063,21 +2063,21 @@ function CreateTaskModal({
 
             {formData.assigned_to && agentSessions.length > 0 && (
               <div>
-                <label htmlFor="create-target-session" className="block text-sm text-muted-foreground mb-1">Target Session</label>
+                <label htmlFor="create-target-session" className="block text-sm text-muted-foreground mb-1">Session cible</label>
                 <select
                   id="create-target-session"
                   value={formData.target_session}
                   onChange={(e) => setFormData(prev => ({ ...prev, target_session: e.target.value }))}
                   className="w-full bg-surface-1 text-foreground border border-border rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary/50"
                 >
-                  <option value="">New session (default)</option>
+                  <option value="">Nouvelle session (par défaut)</option>
                   {agentSessions.map(s => (
                     <option key={s.key} value={s.key}>
                       {s.displayLabel}
                     </option>
                   ))}
                 </select>
-                <p className="text-[11px] text-muted-foreground mt-1">Send task to an existing agent session instead of creating a new one.</p>
+                <p className="text-[11px] text-muted-foreground mt-1">Envoyer la tâche à une session d'agent existante au lieu d'en créer une nouvelle.</p>
               </div>
             )}
 

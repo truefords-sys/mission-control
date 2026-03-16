@@ -136,8 +136,8 @@ export function MessageList() {
               <path d="M6 7h.01M10 7h.01" />
             </svg>
           </div>
-          <p className="text-sm text-muted-foreground">Select a conversation</p>
-          <p className="text-xs text-muted-foreground/50 mt-1">or start a new one with an agent</p>
+          <p className="text-sm text-muted-foreground">Sélectionner une conversation</p>
+          <p className="text-xs text-muted-foreground/50 mt-1">ou en démarrer une nouvelle avec un agent</p>
         </div>
       </div>
     )
@@ -157,7 +157,7 @@ export function MessageList() {
               <path d="M7 11v1a1 1 0 001 1h5l2 2v-6a1 1 0 00-1-1h-1" />
             </svg>
           </div>
-          <p className="text-sm text-muted-foreground">No messages yet</p>
+          <p className="text-sm text-muted-foreground">Aucun message pour le moment</p>
           <p className="text-xs text-muted-foreground/50 mt-1">Send a message to get started</p>
         </div>
       </div>
@@ -188,7 +188,7 @@ export function MessageList() {
                     isGrouped={isGroupedWithPrevious(group.messages, idx)}
                   />
                   <div className="flex items-center gap-2 px-3 pb-2">
-                    <span className="text-[10px] text-red-400">Failed to send</span>
+                    <span className="text-[10px] text-red-400">Échec de l'envoi</span>
                     <Button
                       onClick={() => handleRetry(msg)}
                       variant="link"

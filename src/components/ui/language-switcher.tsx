@@ -34,7 +34,7 @@ export function LanguageSwitcher() {
         onClick={() => setOpen(!open)}
         variant="ghost"
         size="icon-sm"
-        title="Language"
+        title="Langue"
         aria-label="Language"
       >
         <GlobeIcon />

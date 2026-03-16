@@ -138,7 +138,7 @@ export function StatsGrid({ stats, systemStats }: StatsGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
       <StatCard
-        title="Total Sessions"
+        title="Sessions totales"
         value={stats.totalSessions}
         icon={<MonitorIcon />}
         trend="stable"
@@ -146,11 +146,11 @@ export function StatsGrid({ stats, systemStats }: StatsGridProps) {
       />
 
       <StatCard
-        title="Active Sessions"
+        title="Sessions actives"
         value={stats.activeSessions}
         icon={<PulseCircleIcon />}
         trend="up"
-        subtitle={`${stats.totalSessions > 0 ? Math.round((stats.activeSessions / stats.totalSessions) * 100) : 0}% active`}
+        subtitle={`${stats.totalSessions > 0 ? Math.round((stats.activeSessions / stats.totalSessions) * 100) : 0}% actives`}
         color="success"
       />
 
@@ -159,25 +159,25 @@ export function StatsGrid({ stats, systemStats }: StatsGridProps) {
         value={stats.totalMessages.toLocaleString()}
         icon={<ChatIcon />}
         trend="up"
-        subtitle="Total processed"
+        subtitle="Total traités"
         color="default"
       />
 
       <StatCard
-        title="Uptime"
+        title="Disponibilité"
         value={uptimeFormatted}
         icon={<UptimeIcon />}
         trend="stable"
-        subtitle="System running"
+        subtitle="Système actif"
         color="default"
       />
 
       <StatCard
-        title="Errors"
+        title="Erreurs"
         value={stats.errors}
         icon={stats.errors > 0 ? <WarningTriangleIcon /> : <CheckCircleIcon />}
         trend={stats.errors > 0 ? "up" : "stable"}
-        subtitle="Past 24h"
+        subtitle="Dernières 24h"
         color={stats.errors > 0 ? "danger" : "success"}
       />
     </div>

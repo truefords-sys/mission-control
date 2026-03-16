@@ -387,7 +387,7 @@ export function SettingsPanel() {
   }
 
   if (loading) {
-    return <Loader variant="panel" label="Loading settings" />
+    return <Loader variant="panel" label="Chargement des paramètres" />
   }
 
   if (error) {
@@ -940,7 +940,7 @@ export function SettingsPanel() {
                     {!setting.is_default && (
                       <Button
                         onClick={() => handleReset(setting.key)}
-                        title="Reset to default"
+                        title="Réinitialiser par défaut"
                         variant="ghost"
                         size="icon-xs"
                         className="w-6 h-6"
@@ -1146,9 +1146,9 @@ function AccountOAuthSection() {
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-foreground">Google</span>
                 {isGoogleConnected ? (
-                  <span className="text-2xs px-1.5 py-0.5 rounded bg-green-500/15 text-green-400">Connected</span>
+                  <span className="text-2xs px-1.5 py-0.5 rounded bg-green-500/15 text-green-400">Connecté</span>
                 ) : (
-                  <span className="text-2xs px-1.5 py-0.5 rounded bg-muted text-muted-foreground">Not connected</span>
+                  <span className="text-2xs px-1.5 py-0.5 rounded bg-muted text-muted-foreground">Non connecté</span>
                 )}
               </div>
               {isGoogleConnected && currentUser.email ? (

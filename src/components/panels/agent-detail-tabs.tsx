@@ -1734,7 +1734,7 @@ export function ConfigTab({
                       value={identity.name || ''}
                       onChange={(e) => updateIdentityField('name', e.target.value)}
                       className="w-full bg-surface-1 text-foreground rounded px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary/50"
-                      placeholder="Agent name"
+                      placeholder="Nom de l'agent"
                     />
                   </div>
                   <div>
@@ -1754,7 +1754,7 @@ export function ConfigTab({
                     onChange={(e) => updateIdentityField('content', e.target.value)}
                     rows={4}
                     className="w-full bg-surface-1 text-foreground border border-border rounded-md px-3 py-2 font-mono text-xs focus:outline-none focus:ring-1 focus:ring-primary/50"
-                    placeholder="Describe the agent's identity and personality..."
+                    placeholder="Décrivez l'identité et la personnalité de l'agent..."
                   />
                 </div>
               </div>
@@ -2227,7 +2227,7 @@ export function FilesTab({ agent }: { agent: Agent }) {
   if (loading && files.length === 0) {
     return (
       <div className="p-6 flex items-center justify-center py-8">
-        <Loader variant="inline" label="Loading files" />
+        <Loader variant="inline" label="Chargement des fichiers" />
       </div>
     )
   }
@@ -2560,7 +2560,7 @@ export function ChannelsTab({ agent }: { agent: Agent }) {
   if (loading && channels.length === 0) {
     return (
       <div className="p-6 flex items-center justify-center py-8">
-        <Loader variant="inline" label="Loading channels" />
+        <Loader variant="inline" label="Chargement des canaux" />
       </div>
     )
   }
@@ -2678,7 +2678,7 @@ export function CronTab({ agent }: { agent: Agent }) {
   if (loading && allJobs.length === 0) {
     return (
       <div className="p-6 flex items-center justify-center py-8">
-        <Loader variant="inline" label="Loading cron jobs" />
+        <Loader variant="inline" label="Chargement des tâches cron" />
       </div>
     )
   }

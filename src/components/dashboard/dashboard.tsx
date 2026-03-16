@@ -266,21 +266,21 @@ export function Dashboard() {
       <section className="rounded-xl border border-border bg-card p-4">
         <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <div className="text-2xs uppercase tracking-[0.12em] text-muted-foreground">Overview</div>
+            <div className="text-2xs uppercase tracking-[0.12em] text-muted-foreground">Aperçu</div>
             <h2 className="text-lg font-semibold text-foreground">
-              {isLocal ? 'Local Agent Runtime' : 'Gateway Control Plane'}
+              {isLocal ? 'Environnement local des agents' : 'Plan de contrôle de la passerelle'}
             </h2>
             <p className="text-xs text-muted-foreground">
               {isLocal
-                ? 'Unified visibility for Claude, Codex & Hermes local sessions, host pressure, and operator continuity.'
-                : 'Gateway-first health, session routing, queue pressure, and incident response signals.'}
+                ? 'Visibilité unifiée des sessions locales Claude, Codex et Hermes, charge système et continuité opérateur.'
+                : 'Santé de la passerelle, routage des sessions, pression de la file et signaux de réponse aux incidents.'}
             </p>
           </div>
           <div className="grid grid-cols-2 gap-2 min-w-[280px]">
-            <SignalPill label="Mode" value={isLocal ? 'Local' : 'Gateway'} tone="info" />
-            <SignalPill label="Events" value={`${mergedRecentLogs.length} stream`} tone={recentErrorLogs > 0 ? 'warning' : 'success'} />
-            <SignalPill label="Queue" value={String(backlogCount)} tone={backlogCount > 10 ? 'warning' : 'info'} />
-            <SignalPill label="Errors" value={String(errorCount)} tone={errorCount > 0 ? 'warning' : 'success'} />
+            <SignalPill label="Mode" value={isLocal ? 'Local' : 'Passerelle'} tone="info" />
+            <SignalPill label="Événements" value={`${mergedRecentLogs.length} flux`} tone={recentErrorLogs > 0 ? 'warning' : 'success'} />
+            <SignalPill label="File" value={String(backlogCount)} tone={backlogCount > 10 ? 'warning' : 'info'} />
+            <SignalPill label="Erreurs" value={String(errorCount)} tone={errorCount > 0 ? 'warning' : 'success'} />
           </div>
         </div>
       </section>

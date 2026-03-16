@@ -70,7 +70,7 @@ export function ConnectionStatus({
             size="xs"
             onClick={onDisconnect}
             className="bg-gray-500/20 text-gray-400 border-gray-500/30 hover:bg-gray-500/30"
-            title="Cancel reconnection attempts"
+            title="Annuler les tentatives de reconnexion"
           >
             Cancel
           </Button>
@@ -108,15 +108,15 @@ export function ConnectionStatus({
           </>
         ) : connection.lastConnected ? (
           <>
-            <span>Last connected:</span>
+            <span>Dernière connexion :</span>
             <span className="font-mono">
               {new Date(connection.lastConnected).toLocaleTimeString()}
             </span>
           </>
         ) : (
           <>
-            <span>Status:</span>
-            <span className="font-mono">Not connected</span>
+            <span>Statut :</span>
+            <span className="font-mono">Non connecté</span>
           </>
         )}
       </div>

@@ -375,7 +375,7 @@ export function ChatWorkspace({ mode = 'embedded', onClose }: ChatWorkspaceProps
               onClick={onClose}
               variant="ghost"
               size="icon-xs"
-              title="Close chat (Esc)"
+              title="Fermer le chat (Échap)"
             >
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                 <path d="M4 4l8 8M12 4l-8 8" />
@@ -598,7 +598,7 @@ function SessionConversationView({
               <input
                 value={nameDraft}
                 onChange={(e) => setNameDraft(e.target.value)}
-                placeholder="Rename session"
+                placeholder="Renommer la session"
                 maxLength={80}
                 className="h-7 rounded border border-border/60 bg-surface-1 px-2 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary/30"
               />
@@ -607,7 +607,7 @@ function SessionConversationView({
                 onChange={(e) => setColorDraft(e.target.value)}
                 className="h-7 rounded border border-border/60 bg-surface-1 px-2 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary/30"
               >
-                <option value="">No color</option>
+                <option value="">Sans couleur</option>
                 <option value="slate">Slate</option>
                 <option value="blue">Blue</option>
                 <option value="green">Green</option>
@@ -639,7 +639,7 @@ function SessionConversationView({
             <div className="h-4 w-3/4 animate-pulse rounded bg-surface-1/60" />
             <div className="h-4 w-1/2 animate-pulse rounded bg-surface-1/60" />
             <div className="h-4 w-2/3 animate-pulse rounded bg-surface-1/60" />
-            <div className="text-xs text-muted-foreground/50">Loading transcript...</div>
+            <div className="text-xs text-muted-foreground/50">Chargement de la transcription...</div>
           </div>
         )}
         {!loading && error && (

@@ -50,12 +50,12 @@ export function OnboardingChecklistWidget() {
 
   // Derive checklist items from real data
   const items: ChecklistItem[] = [
-    { id: 'account', label: 'Account created', checked: true },
-    { id: 'interface', label: 'Interface mode selected', checked: true },
-    { id: 'credentials', label: 'Credentials reviewed', checked: true },
-    { id: 'security', label: 'Run security scan', checked: !!securityPosture, panel: 'settings' },
-    { id: 'agent', label: 'Dock your first agent', checked: agents.length > 0, panel: 'agents' },
-    { id: 'task', label: 'Create your first task', checked: tasks.length > 0, panel: 'tasks' },
+    { id: 'account', label: 'Compte créé', checked: true },
+    { id: 'interface', label: 'Mode d\'interface sélectionné', checked: true },
+    { id: 'credentials', label: 'Identifiants vérifiés', checked: true },
+    { id: 'security', label: 'Lancer l\'analyse de sécurité', checked: !!securityPosture, panel: 'settings' },
+    { id: 'agent', label: 'Amarrer votre premier agent', checked: agents.length > 0, panel: 'agents' },
+    { id: 'task', label: 'Créer votre première tâche', checked: tasks.length > 0, panel: 'tasks' },
   ]
 
   const completedCount = items.filter(i => i.checked).length
@@ -106,7 +106,7 @@ export function OnboardingChecklistWidget() {
     return (
       <section className={`rounded-xl border ${accentBorder} bg-card p-6 text-center`}>
         <div className={`text-xl font-bold mb-1 ${accentText}`}>Station Fully Operational</div>
-        <p className="text-sm text-muted-foreground">All systems online. You&apos;re ready to go.</p>
+        <p className="text-sm text-muted-foreground">Tous les systèmes sont en ligne. Vous êtes prêt.</p>
       </section>
     )
   }

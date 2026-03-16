@@ -294,7 +294,7 @@ function AllowlistEditor({ execApprovals }: { execApprovals: ExecApprovalRequest
           value={newAgentId}
           onChange={(e) => setNewAgentId(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && addAgent()}
-          placeholder="Agent ID (e.g. claude, assistant)"
+          placeholder="ID de l'agent (ex. : claude, assistant)"
           className="flex-1 bg-secondary border border-border rounded px-2.5 py-1.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-primary/50"
         />
         <Button size="sm" variant="outline" onClick={addAgent} disabled={!newAgentId.trim()}>
@@ -373,7 +373,7 @@ function AgentAllowlistCard({
           <button
             onClick={onRemoveAgent}
             className="text-xs text-muted-foreground hover:text-red-400 transition-colors px-1"
-            title="Remove agent"
+            title="Supprimer l'agent"
           >
             x
           </button>
@@ -400,7 +400,7 @@ function AgentAllowlistCard({
               <button
                 onClick={() => onRemovePattern(index)}
                 className="text-xs text-muted-foreground hover:text-red-400 transition-colors px-1.5"
-                title="Remove pattern"
+                title="Supprimer le modèle"
               >
                 x
               </button>

@@ -231,7 +231,7 @@ export function WidgetGrid({ data }: { data: DashboardData }) {
       {/* Customize mode: hidden widgets + controls */}
       {customizing && hiddenWidgets.length > 0 && (
         <section className="space-y-2">
-          <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Available Widgets</h4>
+          <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Widgets disponibles</h4>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
             {hiddenWidgets.map((widget) => (
               <button

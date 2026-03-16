@@ -358,7 +358,7 @@ export function HeaderBar() {
             size="icon-sm"
             onClick={openCommandPalette}
             className="md:hidden"
-            title="Search"
+            title="Rechercher"
           >
             <SearchIcon />
           </Button>
@@ -391,7 +391,7 @@ export function HeaderBar() {
           className="fixed inset-0 z-[9999] isolate"
           role="dialog"
           aria-modal="true"
-          aria-label="Command search"
+          aria-label="Recherche de commandes"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/30 to-black/30" onClick={() => setSearchOpen(false)} />
           <div className="absolute inset-0 flex items-center justify-center p-4">

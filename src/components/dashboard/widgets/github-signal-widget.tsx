@@ -14,7 +14,7 @@ export function GithubSignalWidget({ data }: { data: DashboardData }) {
       <div className="panel-body space-y-3">
         {githubStats ? (
           <>
-            <StatRow label="Active repos" value={githubStats.repos.total} />
+            <StatRow label="Dépôts actifs" value={githubStats.repos.total} />
             <StatRow label="Public / Private" value={`${githubStats.repos.public} / ${githubStats.repos.private}`} />
             <StatRow label="Open issues" value={githubStats.repos.total_open_issues} />
             <StatRow label="Stars" value={githubStats.repos.total_stars} />

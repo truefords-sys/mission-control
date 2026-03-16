@@ -280,7 +280,7 @@ export function AgentSquadPanelPhase3() {
   }, {} as Record<string, number>)
 
   if (loading && agents.length === 0) {
-    return <Loader variant="panel" label="Loading agents" />
+    return <Loader variant="panel" label="Chargement des agents" />
   }
 
   return (
@@ -427,7 +427,7 @@ export function AgentSquadPanelPhase3() {
 
                     <div className="flex items-center gap-2 shrink-0">
                       {hasRecentHeartbeat(agent) && (
-                        <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" title="Recent heartbeat" />
+                        <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" title="Signal récent" />
                       )}
                       <span className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 text-xs capitalize ${statusBadgeStyles[agent.status]}`}>
                         <span className={`h-1.5 w-1.5 rounded-full ${(statusCardStyles[agent.status] || defaultCardStyle).dot}`} />
@@ -464,7 +464,7 @@ export function AgentSquadPanelPhase3() {
                           size="xs"
                           variant="ghost"
                           className="h-6 px-2 text-xs text-cyan-300 hover:bg-cyan-500/15 hover:text-cyan-200"
-                          title="Wake agent via session"
+                          title="Réveiller l'agent via la session"
                         >
                           {t('wake')}
                         </Button>
@@ -851,7 +851,7 @@ function AgentDetailModalPhase3({
                   variant="ghost"
                   size="icon-sm"
                   className="text-muted-foreground hover:text-rose-400"
-                  title="Delete agent"
+                  title="Supprimer l'agent"
                   onClick={() => setShowDeleteMenu(prev => !prev)}
                 >
                   <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -1090,8 +1090,8 @@ function QuickSpawnModal({
               Agent spawned successfully!
             </div>
             <div className="text-sm text-foreground/80">
-              <p><strong>Agent ID:</strong> {spawnResult.agentId}</p>
-              <p><strong>Session:</strong> {spawnResult.sessionId}</p>
+              <p><strong>ID de l'agent :</strong> {spawnResult.agentId}</p>
+              <p><strong>Session :</strong> {spawnResult.sessionId}</p>
               <p><strong>Model:</strong> {spawnResult.model}</p>
             </div>
           </div>

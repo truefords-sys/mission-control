@@ -17,7 +17,7 @@ export function MaintenanceWidget({ data }: { data: DashboardData }) {
         ) : (
           <StatRow label="Latest backup" value="None" alert />
         )}
-        <StatRow label="Active pipelines" value={dbStats?.pipelines.active ?? 0} />
+        <StatRow label="Pipelines actifs" value={dbStats?.pipelines.active ?? 0} />
         <StatRow label="Pipeline runs (24h)" value={dbStats?.pipelines.recentDay ?? 0} />
       </div>
     </div>

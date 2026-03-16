@@ -444,7 +444,7 @@ export function SkillsPanel() {
               <button
                 onClick={() => setQuery('')}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground/50 hover:text-foreground text-xs"
-                title="Clear"
+                title="Effacer"
               >
                 ✕
               </button>

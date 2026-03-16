@@ -47,7 +47,7 @@ export function ThemeSelector() {
         onClick={() => setOpen(!open)}
         variant="ghost"
         size="icon-sm"
-        title="Change theme"
+        title="Changer le thème"
       >
         <PaletteIcon />
       </Button>

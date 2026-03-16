@@ -50,7 +50,7 @@ export function MetricCardsWidget({ data }: { data: DashboardData }) {
           label="Claude"
           value={isClaudeLoading ? '...' : claudeActive}
           total={isClaudeLoading ? undefined : (claudeStats?.total_sessions ?? claudeLocalSessions.length)}
-          subtitle="active sessions"
+          subtitle="sessions actives"
           icon={<SessionIcon />}
           color="blue"
         />
@@ -71,7 +71,7 @@ export function MetricCardsWidget({ data }: { data: DashboardData }) {
           color="purple"
         />
         <MetricCard
-          label="System Load"
+          label="Charge système"
           value={isSystemLoading ? '...' : `${systemLoad}%`}
           subtitle={`mem ${memPct ?? '-'} · disk ${Number.isFinite(diskPct) ? `${diskPct}%` : '-'}`}
           icon={<ActivityIconMini />}
@@ -85,9 +85,9 @@ export function MetricCardsWidget({ data }: { data: DashboardData }) {
           color="purple"
         />
         <MetricCard
-          label="Cost"
+          label="Coût"
           value={isClaudeLoading ? '...' : (subscriptionLabel ? (subscriptionPrice ? `$${subscriptionPrice}/mo` : 'Included') : `$${(claudeStats?.total_estimated_cost ?? 0).toFixed(2)}`)}
-          subtitle={subscriptionLabel ? `${subscriptionLabel} plan` : 'estimated'}
+          subtitle={subscriptionLabel ? `plan ${subscriptionLabel}` : 'estimé'}
           icon={<CostIcon />}
           color={errorCount > 0 ? 'red' : 'green'}
         />
@@ -97,11 +97,11 @@ export function MetricCardsWidget({ data }: { data: DashboardData }) {
 
   return (
     <section className="grid grid-cols-2 xl:grid-cols-5 gap-3">
-      <MetricCard label="Gateway" value={connection.isConnected ? 'Online' : 'Offline'} subtitle="transport status" icon={<GatewayIcon />} color={connection.isConnected ? 'green' : 'red'} />
-      <MetricCard label="Sessions" value={activeSessions} total={sessions.length} subtitle="active / total" icon={<SessionIcon />} color="blue" />
-      <MetricCard label="Agent Capacity" value={onlineAgents} subtitle={`${dbStats?.agents.total ?? agents.length} total`} icon={<AgentIcon />} color="green" />
-      <MetricCard label="Queue" value={backlogCount} subtitle={`${runningTasks} running`} icon={<TaskIcon />} color={backlogCount > 12 ? 'red' : 'purple'} />
-      <MetricCard label="System Load" value={isSystemLoading ? '...' : `${systemLoad}%`} subtitle={`errors ${errorCount}`} icon={<ActivityIconMini />} color={systemLoad > 85 || errorCount > 0 ? 'red' : 'blue'} />
+      <MetricCard label="Passerelle" value={connection.isConnected ? 'En ligne' : 'Hors ligne'} subtitle="statut du transport" icon={<GatewayIcon />} color={connection.isConnected ? 'green' : 'red'} />
+      <MetricCard label="Sessions" value={activeSessions} total={sessions.length} subtitle="actif / total" icon={<SessionIcon />} color="blue" />
+      <MetricCard label="Capacité des agents" value={onlineAgents} subtitle={`${dbStats?.agents.total ?? agents.length} au total`} icon={<AgentIcon />} color="green" />
+      <MetricCard label="File" value={backlogCount} subtitle={`${runningTasks} en cours`} icon={<TaskIcon />} color={backlogCount > 12 ? 'red' : 'purple'} />
+      <MetricCard label="System Load" value={isSystemLoading ? '...' : `${systemLoad}%`} subtitle={`erreurs ${errorCount}`} icon={<ActivityIconMini />} color={systemLoad > 85 || errorCount > 0 ? 'red' : 'blue'} />
     </section>
   )
 }
