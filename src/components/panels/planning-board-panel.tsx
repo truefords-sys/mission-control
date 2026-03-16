@@ -582,7 +582,7 @@ function DailyTasksTab({
   )
 }
 
-// ─── Weekly Calendar View ───────────────────────────────────────────
+// ─── Weekly Column View ─────────────────────────────────────────────
 function WeeklyTasksTab({
   tasks,
   onEdit,
@@ -613,88 +613,84 @@ function WeeklyTasksTab({
     })
   }
 
-  const hours = Array.from({ length: 24 }, (_, i) => i)
-
-  if (tasks.length === 0) {
-    return (
-      <div className="flex items-center justify-center py-16 text-muted-foreground/50 text-sm">
-        Aucune tâche hebdomadaire configurée
-      </div>
-    )
-  }
+  // Weekend day indices (Samedi=5, Dimanche=6 in DAYS_FR)
+  const isWeekend = (dayIdx: number) => dayIdx >= 5
 
   return (
-    <div className="overflow-x-auto">
-      <div className="min-w-[800px]">
-        {/* Day headers */}
-        <div className="grid grid-cols-7 gap-1 mb-1">
-          {DAYS_FR.map((day, idx) => (
-            <div key={day} className="text-center text-xs font-semibold text-muted-foreground py-2 bg-secondary/30 rounded-t-lg border border-border/50">
-              {day}
-              <span className="ml-1 text-muted-foreground/50">({tasksByDay[DAYS_CRON[idx]].length})</span>
-            </div>
-          ))}
-        </div>
+    <div className="overflow-x-auto p-3">
+      <div className="grid grid-cols-7 gap-2 min-w-[800px]">
+        {DAYS_FR.map((day, idx) => {
+          const dayTasks = tasksByDay[DAYS_CRON[idx]]
+          const weekend = isWeekend(idx)
 
-        {/* Timeline grid */}
-        <div className="grid grid-cols-7 gap-1" style={{ minHeight: '400px' }}>
-          {DAYS_FR.map((day, idx) => {
-            const dayTasks = tasksByDay[DAYS_CRON[idx]]
-            return (
-              <div key={day} className="relative bg-secondary/10 border border-border/30 rounded-b-lg overflow-hidden">
-                {/* Hour lines */}
-                {hours.filter(h => h % 3 === 0).map((h) => (
-                  <div
-                    key={h}
-                    className="absolute left-0 right-0 border-t border-border/20"
-                    style={{ top: `${(h / 24) * 100}%` }}
-                  >
-                    <span className="text-[9px] text-muted-foreground/30 px-0.5 leading-none">
-                      {String(h).padStart(2, '0')}
-                    </span>
+          return (
+            <div
+              key={day}
+              className={`flex flex-col rounded-lg border border-border/50 overflow-hidden ${
+                weekend ? 'bg-secondary/20' : 'bg-card'
+              }`}
+            >
+              {/* Day header */}
+              <div className={`text-center text-xs font-semibold py-2.5 border-b border-border/50 ${
+                weekend
+                  ? 'bg-secondary/40 text-muted-foreground'
+                  : 'bg-secondary/20 text-foreground'
+              }`}>
+                {day}
+                <span className="ml-1.5 text-muted-foreground/50 font-normal">
+                  ({dayTasks.length})
+                </span>
+              </div>
+
+              {/* Task cards stacked vertically */}
+              <div className="flex-1 flex flex-col gap-1.5 p-1.5 min-h-[120px]">
+                {dayTasks.length === 0 ? (
+                  <div className="flex-1 flex items-center justify-center text-muted-foreground/30 text-xs italic">
+                    Aucune tâche
                   </div>
-                ))}
+                ) : (
+                  dayTasks.map((task) => {
+                    const h = getCronHour(task.cron_expression)
+                    const m = getCronMinute(task.cron_expression)
+                    const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`
 
-                {/* Task blocks */}
-                {dayTasks.map((task) => {
-                  const h = getCronHour(task.cron_expression)
-                  const m = getCronMinute(task.cron_expression)
-                  const topPercent = ((h * 60 + m) / (24 * 60)) * 100
-
-                  const priorityBlockColors: Record<string, string> = {
-                    low: 'bg-blue-500/30 border-blue-500/50 text-blue-300',
-                    medium: 'bg-yellow-500/30 border-yellow-500/50 text-yellow-300',
-                    high: 'bg-orange-500/30 border-orange-500/50 text-orange-300',
-                    urgent: 'bg-red-500/30 border-red-500/50 text-red-300',
-                  }
-
-                  return (
-                    <div
-                      key={task.id}
-                      className={`absolute left-0.5 right-0.5 rounded px-1 py-0.5 border cursor-pointer hover:brightness-125 transition-all ${
-                        priorityBlockColors[task.priority]
-                      } ${task.status === 'paused' ? 'opacity-40' : ''}`}
-                      style={{ top: `${topPercent}%`, minHeight: '24px' }}
-                      onClick={() => onEdit(task)}
-                      title={`${task.name} - ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`}
-                    >
-                      <div className="text-[10px] font-medium truncate leading-tight">{task.name}</div>
-                      <div className="text-[9px] opacity-70">
-                        {String(h).padStart(2, '0')}:{String(m).padStart(2, '0')}
+                    return (
+                      <div
+                        key={task.id}
+                        className={`rounded-md border border-border/60 bg-background/80 px-2 py-1.5 cursor-pointer hover:bg-secondary/40 transition-colors ${
+                          task.status === 'paused' ? 'opacity-50' : ''
+                        }`}
+                        onClick={() => onEdit(task)}
+                        title={`${task.name} — ${timeStr}`}
+                      >
+                        {/* Time */}
+                        <div className="text-[11px] font-mono text-muted-foreground leading-tight">
+                          {timeStr}
+                        </div>
+                        {/* Task name */}
+                        <div className="text-xs font-medium text-foreground truncate leading-snug mt-0.5">
+                          {task.name}
+                        </div>
+                        {/* Priority badge + status */}
+                        <div className="flex items-center gap-1 mt-1">
+                          <span className={`text-[10px] px-1.5 py-0 rounded border font-medium leading-relaxed ${PRIORITY_COLORS[task.priority]}`}>
+                            {PRIORITY_LABELS[task.priority]}
+                          </span>
+                          <button
+                            onClick={(e) => { e.stopPropagation(); onToggle(task) }}
+                            className={`text-[10px] px-1.5 py-0 rounded border font-medium leading-relaxed transition-colors ${STATUS_COLORS[task.status]}`}
+                          >
+                            {task.status === 'active' ? '●' : '❚❚'}
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
-
-                {dayTasks.length === 0 && (
-                  <div className="flex items-center justify-center h-full text-muted-foreground/20 text-xs">
-                    —
-                  </div>
+                    )
+                  })
                 )}
               </div>
-            )
-          })}
-        </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )
