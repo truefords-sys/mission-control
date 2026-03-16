@@ -524,7 +524,7 @@ function DailyTasksTab({
             <th className="text-left px-3 py-2 font-medium hidden sm:table-cell">Description</th>
             <th className="text-left px-3 py-2 font-medium">Cron</th>
             <th className="text-left px-3 py-2 font-medium">Priorité</th>
-            <th className="text-left px-3 py-2 font-medium">Status</th>
+            <th className="text-left px-3 py-2 font-medium">Statut</th>
             <th className="text-right px-3 py-2 font-medium">Actions</th>
           </tr>
         </thead>
@@ -724,7 +724,7 @@ function AlwaysRunningTab({
             <th className="text-left px-3 py-2 font-medium hidden sm:table-cell">Description</th>
             <th className="text-left px-3 py-2 font-medium">Cron</th>
             <th className="text-left px-3 py-2 font-medium">Priorité</th>
-            <th className="text-left px-3 py-2 font-medium">Status</th>
+            <th className="text-left px-3 py-2 font-medium">Statut</th>
             <th className="text-right px-3 py-2 font-medium">Actions</th>
           </tr>
         </thead>
@@ -888,7 +888,7 @@ export function PlanningBoardPanel() {
   const tabs: { id: TabId; label: string; count: number }[] = [
     { id: 'quotidiennes', label: 'Quotidiennes', count: dailyTasks.length },
     { id: 'hebdomadaires', label: 'Hebdomadaires', count: weeklyTasks.length },
-    { id: 'always-running', label: 'Always Running', count: recurringTasks.length },
+    { id: 'always-running', label: 'Récurrentes', count: recurringTasks.length },
   ]
 
   return (
